@@ -1,0 +1,73 @@
+id,payment_id,failure_type,action,reason,confidence,channel,outcome,recovered,amount,note,ts
+145,pay_Test_001,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,19900,,2026-08-30 16:13:20
+146,pay_Test_002,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,49900,,2026-08-30 16:13:20
+147,pay_Test_003,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,9900,,2026-08-30 16:13:20
+148,pay_Test_004,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,4999,4999,,2026-08-30 16:13:20
+149,pay_Test_005,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,4999,4999,,2026-08-30 16:13:20
+150,pay_Test_006,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,99900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+151,pay_Test_007,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
+152,pay_Test_008,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,19900,,2026-08-30 16:13:20
+153,pay_Test_009,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,recovered,19900,19900,,2026-08-30 16:13:20
+154,pay_Test_010,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,escalated_high_value,0,6000000,amount 6000000p over high-value threshold; escalated.,2026-08-30 16:13:20
+155,pay_Test_011,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
+156,pay_Test_012,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
+157,pay_Test_013,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,99900,,2026-08-30 16:13:20
+158,pay_Test_014,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
+159,pay_Test_015,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,9900,9900,,2026-08-30 16:13:20
+160,pay_Test_016,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
+161,pay_Test_017,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,skipped_dnc,0,49900,Customer on do-not-contact list.,2026-08-30 16:13:20
+162,pay_Test_018,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,19900,,2026-08-30 16:13:20
+163,pay_Test_019,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+164,pay_Test_020,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
+165,pay_Test_021,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,recovered,4999,4999,,2026-08-30 16:13:20
+166,pay_Test_022,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,19900,,2026-08-30 16:13:20
+167,pay_Test_023,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,4999,4999,,2026-08-30 16:13:20
+168,pay_Test_024,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
+169,pay_Test_025,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
+170,pay_Test_026,invoice_overdue,escalate_human,Overdue B2B invoice needs human/sales follow-up.,0.8,email,escalated,0,19900,Flagged for human follow-up; no further retries.,2026-08-30 16:13:20
+171,pay_Test_027,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,4999,,2026-08-30 16:13:20
+172,pay_Test_028,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,29900,,2026-08-30 16:13:20
+173,pay_Test_029,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,29900,29900,,2026-08-30 16:13:20
+174,pay_Test_030,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+175,pay_Test_031,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,149900,,2026-08-30 16:13:20
+176,pay_Test_032,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,29900,,2026-08-30 16:13:20
+177,pay_Test_033,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,49900,49900,,2026-08-30 16:13:20
+178,pay_Test_034,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,4999,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+179,pay_Test_035,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,recovered,19900,19900,,2026-08-30 16:13:20
+180,pay_Test_036,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,4999,,2026-08-30 16:13:20
+181,pay_Test_037,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+182,pay_Test_038,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,4999,,2026-08-30 16:13:20
+183,pay_Test_039,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,49900,49900,,2026-08-30 16:13:20
+184,pay_Test_040,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,99900,99900,,2026-08-30 16:13:20
+185,pay_Test_041,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
+186,pay_Test_042,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,max_retries_reached,0,9900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+187,pay_Test_043,permanent_failure,do_nothing,Permanent failure is unrecoverable; do not retry.,0.95,none,unrecoverable,0,9900,Permanent failure — no action taken.,2026-08-30 16:13:20
+188,pay_Test_044,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+189,pay_Test_045,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
+190,pay_Test_046,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,99900,,2026-08-30 16:13:20
+191,pay_Test_047,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
+192,pay_Test_048,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,29900,,2026-08-30 16:13:20
+193,pay_Test_049,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,9900,,2026-08-30 16:13:20
+194,pay_Test_050,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,19900,19900,,2026-08-30 16:13:20
+195,pay_Test_051,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+196,pay_Test_052,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
+197,pay_Test_053,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,recovered,99900,99900,,2026-08-30 16:13:20
+198,pay_Test_054,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,29900,,2026-08-30 16:13:20
+199,pay_Test_055,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,29900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+200,pay_Test_056,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,99900,99900,,2026-08-30 16:13:20
+201,pay_Test_057,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
+202,pay_Test_058,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,49900,,2026-08-30 16:13:20
+203,pay_Test_059,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
+204,pay_Test_060,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,49900,,2026-08-30 16:13:20
+205,pay_Test_061,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
+206,pay_Test_062,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,99900,99900,,2026-08-30 16:13:20
+207,pay_Test_063,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,9900,,2026-08-30 16:13:20
+208,pay_Test_064,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,49900,,2026-08-30 16:13:20
+209,pay_Test_065,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,19900,,2026-08-30 16:13:20
+210,pay_Test_066,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,29900,29900,,2026-08-30 16:13:20
+211,pay_Test_067,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,29900,29900,,2026-08-30 16:13:20
+212,pay_Test_068,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,149900,149900,,2026-08-30 16:13:20
+213,pay_Test_069,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,9900,9900,,2026-08-30 16:13:20
+214,pay_Test_070,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,19900,19900,,2026-08-30 16:13:20
+215,pay_Test_071,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,149900,149900,,2026-08-30 16:13:20
+216,pay_Test_072,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,29900,29900,,2026-08-30 16:13:20
