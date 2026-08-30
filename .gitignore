@@ -1,0 +1,11 @@
+.env
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Run artifacts live at the repo root; the committed copy lives in sample_output/
+/audit.db
+/results.csv
+/recovery_report.md
+*.db-journal
