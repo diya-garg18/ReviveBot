@@ -16,6 +16,7 @@ load_dotenv()
 # --- Paths ------------------------------------------------------------------
 ROOT = Path(__file__).resolve().parent
 DATA_CSV = ROOT / "data" / "synthetic_payments.csv"
+DNC_FILE = ROOT / "data" / "dnc_list.csv"
 AUDIT_DB = ROOT / "audit.db"
 REPORT_MD = ROOT / "recovery_report.md"
 RESULTS_CSV = ROOT / "results.csv"
@@ -37,11 +38,28 @@ MIN_CONFIDENCE = 0.5               # below this, escalate instead of auto-acting
 HIGH_VALUE_PAISE = 50_000 * 100    # amount above which we always escalate (₹50,000)
 INVOICE_OVERDUE_DAYS = 30          # B2B invoice age that counts as overdue
 
-# Customers we must never contact (loaded from a DNC list in a real system).
-DO_NOT_CONTACT: set[str] = {
-    "dnc_customer@example.com",
-    "+919999000001",
-}
+# Customers we must never contact. Loaded from data/dnc_list.csv so the list
+# can be maintained without touching code. Falls back to a small default set if
+# the file is missing.
+_DEFAULT_DNC = {"dnc_customer@example.com", "+919999000001"}
+
+
+def load_dnc(path: Path | str = None) -> set[str]:
+    """Read the do-not-contact list. One contact per line; '#' comments and the
+    'contact' header are ignored."""
+    path = Path(path or DNC_FILE)
+    if not path.exists():
+        return set(_DEFAULT_DNC)
+    contacts: set[str] = set()
+    for line in path.read_text(encoding="utf-8").splitlines():
+        entry = line.strip()
+        if not entry or entry.startswith("#") or entry.lower() == "contact":
+            continue
+        contacts.add(entry)
+    return contacts or set(_DEFAULT_DNC)
+
+
+DO_NOT_CONTACT: set[str] = load_dnc()
 
 # --- Run mode ---------------------------------------------------------------
 # When True, diagnosis falls back to deterministic rules if no GROQ_API_KEY

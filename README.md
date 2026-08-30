@@ -34,14 +34,14 @@ rules and comms are mocked, so you can see the full pipeline immediately.
 
 ```bash
 pip install -r requirements.txt
-python scripts/generate_data.py     # writes data/synthetic_payments.csv (72 rows)
+python scripts/generate_data.py     # writes data/synthetic_payments.csv (80 rows)
 python main.py                      # runs the batch, writes report + audit.db
 ```
 
 Sample run headline:
 
 ```
-Batch: 72 | At risk: ₹96,736.92 | Recovered: ₹12,124.97 (12.5%)
+Batch: 80 | At risk: ₹130,924.96 | Recovered: ₹28,519.99 (21.8%)
 ```
 
 Every run also writes a summary chart (`recovery_chart.png`) next to the report:
@@ -95,14 +95,14 @@ What makes this Track 03 and not just a retry script — the executor checks the
 | Rule | Condition | Outcome |
 | --- | --- | --- |
 | Max retries | `attempts >= 3` | `max_retries_reached`, escalate |
-| Do-not-contact | customer on DNC list | `skipped_dnc`, never contact |
+| Do-not-contact | customer in `data/dnc_list.csv` | `skipped_dnc`, never contact |
 | Permanent failure | `failure_reason = PERMANENT_FAILURE` | `unrecoverable`, no action |
 | Low confidence | model confidence `< 0.5` | `escalated_low_confidence` |
 | High value | `amount > ₹50,000` | `escalated_high_value`, never auto-retry |
 
 The synthetic batch includes deliberately tricky records that trigger each of
-these (`pay_Test_010`, `_017`, `_026`, `_043`, `_061`) so the graceful-failure
-handling is visible in the report and audit log.
+these (`pay_Test_010`, `_017`, `_026`, `_034`, `_043`, `_061`) so the
+graceful-failure handling is visible in the report and audit log.
 
 ## What broke (honest notes)
 
@@ -117,7 +117,8 @@ handling is visible in the report and audit log.
 
 ```
 ReviveBot/
-├── data/synthetic_payments.csv     # generated test batch (50+ rows)
+├── data/synthetic_payments.csv     # generated test batch (80 rows)
+│   └── dnc_list.csv                # do-not-contact list (loaded by config)
 ├── revivebot/                      # detector, diagnosis, executor, audit, report
 ├── scripts/generate_data.py        # synthetic data generator (seeded)
 ├── sample_output/                  # report + results.csv + audit.db from a run

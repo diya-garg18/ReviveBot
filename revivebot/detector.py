@@ -13,8 +13,8 @@ from datetime import datetime, timezone
 FAILURE_TYPES: dict[str, list[str]] = {
     "insufficient_funds": ["BAD_REQUEST_ERROR:FUND"],
     "network_error": ["GATEWAY_ERROR", "SERVER_ERROR"],
-    "user_abandoned": ["PAYMENT_CANCELLED"],
-    "mandate_broken": ["BAD_REQUEST_ERROR:MANDATE"],
+    "user_abandoned": ["PAYMENT_CANCELLED", "PAYMENT_TIMEOUT"],
+    "mandate_broken": ["BAD_REQUEST_ERROR:MANDATE", "BAD_REQUEST_ERROR:CARD"],
     "invoice_overdue": [],  # handled specially via order_type + age
 }
 

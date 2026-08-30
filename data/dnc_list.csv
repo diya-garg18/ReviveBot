@@ -1,0 +1,8 @@
+# Do-not-contact list. One email or phone per line. Blank lines and lines
+# starting with '#' are ignored. The agent never contacts anyone listed here.
+contact
+dnc_customer@example.com
+optout_user@example.com
+angry_customer@example.com
++919999000001
++919888000002
