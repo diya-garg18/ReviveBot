@@ -15,8 +15,8 @@ synthetic_payments.csv
         │                                      user_abandoned, mandate_broken,
         │                                      invoice_overdue, permanent_failure)
         ▼
-[ Diagnosis Engine ]  Claude -> {action, reason, confidence, channel, ...}
-        │             (validated schema; deterministic rule fallback offline)
+[ Diagnosis Engine ]  Groq -> {action, reason, confidence, channel, ...}
+        │             (JSON validated with Pydantic; rule fallback offline)
         ▼
 [ Recovery Executor ] stopping rules first, then act
         │             retry_upi / send_payment_link (Razorpay test) | send_nudge (mock)
@@ -44,17 +44,17 @@ Sample run headline (offline mode, seeded):
 Batch: 72 | At risk: ₹96,736.92 | Recovered: ₹10,978.96 (11.3%)
 ```
 
-To use the **real** Claude diagnosis and Razorpay test-mode payment links, copy
+To use the **real** Groq diagnosis and Razorpay test-mode payment links, copy
 `.env.example` to `.env` and fill in your keys:
 
 ```bash
-cp .env.example .env    # then set ANTHROPIC_API_KEY and/or RAZORPAY_KEY_ID/SECRET
+cp .env.example .env    # then set GROQ_API_KEY and/or RAZORPAY_KEY_ID/SECRET
 ```
 
-- With `ANTHROPIC_API_KEY` set, diagnosis calls Claude (`claude-opus-4-8` by
-  default; override with `CLAUDE_MODEL`). Responses use a strict output schema
-  via `messages.parse`, so the action plan is always valid — no malformed-JSON
-  retries.
+- With `GROQ_API_KEY` set, diagnosis calls Groq (`openai/gpt-oss-120b` by
+  default; override with `GROQ_MODEL`). Groq runs in JSON mode and the reply is
+  validated against the `ActionPlan` schema with Pydantic, so a malformed reply
+  is caught instead of crashing the batch.
 - With `RAZORPAY_KEY_ID` / `RAZORPAY_KEY_SECRET` set (test keys, `rzp_test_…`),
   `retry_upi` / `send_payment_link` create real **test-mode** payment links. No
   real money moves.
@@ -66,12 +66,22 @@ cp .env.example .env    # then set ANTHROPIC_API_KEY and/or RAZORPAY_KEY_ID/SECR
 | Layer | File | What it does |
 | --- | --- | --- |
 | Signal detector | `revivebot/detector.py` | Classifies each record into a failure bucket |
-| Diagnosis engine | `revivebot/diagnosis.py` | Claude action plan (schema-validated) + rule fallback |
+| Diagnosis engine | `revivebot/diagnosis.py` | Groq action plan (JSON validated) + rule fallback |
 | Recovery executor | `revivebot/executor.py` | Stopping rules, then Razorpay test API / mock comms |
 | Audit logger | `revivebot/audit.py` | Writes every decision + outcome to SQLite |
 | Report generator | `revivebot/report.py` | Produces `recovery_report.md` + `results.csv` |
 | Entry point | `main.py` | Wires the batch loop together |
 | Config | `config.py` | Keys, model, thresholds, stopping rules |
+
+## Tests
+
+```bash
+pip install pytest
+pytest
+```
+
+The suite covers the detector's buckets, every compliance stopping rule, and
+the report maths — the parts that must stay correct.
 
 ## Stopping rules & compliance
 

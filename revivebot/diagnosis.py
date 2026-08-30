@@ -1,11 +1,11 @@
 """Diagnosis engine — decide the right recovery action for a failed payment.
 
-Primary path: call Claude with a tight schema (via ``messages.parse``) so the
-response is a *validated* action plan — no hand-rolled JSON parsing, no
-malformed-JSON retries.
+Primary path: call Groq (JSON mode) and validate the reply against the
+ActionPlan schema with Pydantic, so a malformed response is caught instead of
+crashing the batch.
 
-Fallback path: if no ANTHROPIC_API_KEY is configured (and OFFLINE_OK is set),
-a deterministic rule table produces the same shape of plan so the batch still
+Fallback path: if no GROQ_API_KEY is configured (and OFFLINE_OK is set), a
+deterministic rule table produces the same shape of plan so the batch still
 runs end-to-end for a demo.
 """
 from __future__ import annotations
@@ -41,6 +41,7 @@ class ActionPlan(BaseModel):
     )
 
 
+# The allowed values are listed explicitly so the model returns clean JSON.
 SYSTEM_PROMPT = """You are a payment recovery specialist for an Indian merchant.
 Given a single failed payment record and its classified failure_type, choose the
 single best recovery action. Be conservative and compliant:
@@ -51,16 +52,23 @@ single best recovery action. Be conservative and compliant:
   escalate_human rather than auto-acting.
 - If nothing productive can be done, choose do_nothing.
 
-Return an action plan. confidence is your own calibrated 0-1 estimate that the
-action will recover the payment. Keep message_template under 160 characters."""
+Reply with ONLY a JSON object with these fields:
+  action: one of ["retry_upi", "send_payment_link", "send_nudge",
+                  "escalate_human", "do_nothing"]
+  reason: one sentence explaining the choice
+  confidence: number between 0 and 1 (your estimate the action recovers the money)
+  channel: one of ["upi", "card", "email", "whatsapp", "none"]
+  message_template: short customer message under 160 characters (or "")
+  stop_if: condition that should halt further retries (or "")
+"""
 
 
-def _diagnose_claude(record: dict, failure_type: str) -> ActionPlan:
+def _diagnose_groq(record: dict, failure_type: str) -> ActionPlan:
     import json
 
-    import anthropic  # imported lazily so offline runs need no SDK
+    from groq import Groq  # imported lazily so offline runs need no SDK
 
-    client = anthropic.Anthropic(api_key=config.ANTHROPIC_API_KEY)
+    client = Groq(api_key=config.GROQ_API_KEY)
     user_payload = {
         "failure_type": failure_type,
         "payment": {
@@ -74,14 +82,18 @@ def _diagnose_claude(record: dict, failure_type: str) -> ActionPlan:
             "created_at": record.get("created_at"),
         },
     }
-    response = client.messages.parse(
-        model=config.CLAUDE_MODEL,
-        max_tokens=1024,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": json.dumps(user_payload)}],
-        output_format=ActionPlan,
+    response = client.chat.completions.create(
+        model=config.GROQ_MODEL,
+        temperature=0,
+        response_format={"type": "json_object"},  # ask Groq for valid JSON
+        messages=[
+            {"role": "system", "content": SYSTEM_PROMPT},
+            {"role": "user", "content": json.dumps(user_payload)},
+        ],
     )
-    return response.parsed_output
+    raw = response.choices[0].message.content
+    # Validate against the schema — a bad reply raises here and is caught upstream.
+    return ActionPlan.model_validate_json(raw)
 
 
 # --- Deterministic fallback -------------------------------------------------
@@ -131,10 +143,10 @@ def _diagnose_rules(record: dict, failure_type: str) -> ActionPlan:
 
 
 def diagnose(record: dict, failure_type: str) -> ActionPlan:
-    """Return an ActionPlan for one record, via Claude or the rule fallback."""
-    if config.has_claude():
+    """Return an ActionPlan for one record, via Groq or the rule fallback."""
+    if config.has_groq():
         try:
-            return _diagnose_claude(record, failure_type)
+            return _diagnose_groq(record, failure_type)
         except Exception as exc:  # never let one bad call kill the batch
             if not config.OFFLINE_OK:
                 raise
@@ -142,5 +154,5 @@ def diagnose(record: dict, failure_type: str) -> ActionPlan:
             plan.reason = f"[fallback: {type(exc).__name__}] {plan.reason}"
             return plan
     if not config.OFFLINE_OK:
-        raise RuntimeError("No ANTHROPIC_API_KEY set and OFFLINE_OK is disabled.")
+        raise RuntimeError("No GROQ_API_KEY set and OFFLINE_OK is disabled.")
     return _diagnose_rules(record, failure_type)

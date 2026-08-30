@@ -20,10 +20,10 @@ AUDIT_DB = ROOT / "audit.db"
 REPORT_MD = ROOT / "recovery_report.md"
 RESULTS_CSV = ROOT / "results.csv"
 
-# --- Claude (diagnosis engine) ---------------------------------------------
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
-# Skill default. Override with CLAUDE_MODEL in .env if you want Sonnet for cost.
-CLAUDE_MODEL = os.getenv("CLAUDE_MODEL", "claude-opus-4-8")
+# --- Groq (diagnosis engine) -----------------------------------------------
+GROQ_API_KEY = os.getenv("GROQ_API_KEY", "")
+# A fast, capable Groq model. Override with GROQ_MODEL in .env if you like.
+GROQ_MODEL = os.getenv("GROQ_MODEL", "openai/gpt-oss-120b")
 
 # --- Razorpay (recovery executor) ------------------------------------------
 RAZORPAY_KEY_ID = os.getenv("RAZORPAY_KEY_ID", "")
@@ -44,14 +44,14 @@ DO_NOT_CONTACT: set[str] = {
 }
 
 # --- Run mode ---------------------------------------------------------------
-# When True, diagnosis falls back to deterministic rules if no ANTHROPIC_API_KEY
+# When True, diagnosis falls back to deterministic rules if no GROQ_API_KEY
 # is set, and executor uses mock comms if no Razorpay keys are set. This lets the
 # whole batch run end-to-end for a demo without any credentials.
 OFFLINE_OK = os.getenv("REVIVEBOT_OFFLINE_OK", "1") == "1"
 
 
-def has_claude() -> bool:
-    return bool(ANTHROPIC_API_KEY)
+def has_groq() -> bool:
+    return bool(GROQ_API_KEY)
 
 
 def has_razorpay() -> bool:

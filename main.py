@@ -36,7 +36,7 @@ def load_records(csv_path=None) -> list[dict]:
 
 
 def run() -> dict:
-    mode = "Claude" if config.has_claude() else "rule-based (offline)"
+    mode = "Groq" if config.has_groq() else "rule-based (offline)"
     comms = "Razorpay test" if config.has_razorpay() else "mock comms (offline)"
     print(f"ReviveBot — diagnosis: {mode} | execution: {comms}")
     print("-" * 60)
