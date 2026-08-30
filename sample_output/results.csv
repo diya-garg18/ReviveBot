@@ -1,73 +1,73 @@
 id,payment_id,failure_type,action,reason,confidence,channel,outcome,recovered,amount,note,ts
-145,pay_Test_001,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,19900,,2026-08-30 16:13:20
-146,pay_Test_002,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,49900,,2026-08-30 16:13:20
-147,pay_Test_003,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,9900,,2026-08-30 16:13:20
-148,pay_Test_004,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,4999,4999,,2026-08-30 16:13:20
-149,pay_Test_005,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,4999,4999,,2026-08-30 16:13:20
-150,pay_Test_006,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,99900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-151,pay_Test_007,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
-152,pay_Test_008,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,19900,,2026-08-30 16:13:20
-153,pay_Test_009,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,recovered,19900,19900,,2026-08-30 16:13:20
-154,pay_Test_010,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,escalated_high_value,0,6000000,amount 6000000p over high-value threshold; escalated.,2026-08-30 16:13:20
-155,pay_Test_011,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
-156,pay_Test_012,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
-157,pay_Test_013,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,99900,,2026-08-30 16:13:20
-158,pay_Test_014,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
-159,pay_Test_015,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,9900,9900,,2026-08-30 16:13:20
-160,pay_Test_016,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
-161,pay_Test_017,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,skipped_dnc,0,49900,Customer on do-not-contact list.,2026-08-30 16:13:20
-162,pay_Test_018,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,19900,,2026-08-30 16:13:20
-163,pay_Test_019,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-164,pay_Test_020,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
-165,pay_Test_021,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,recovered,4999,4999,,2026-08-30 16:13:20
-166,pay_Test_022,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,19900,,2026-08-30 16:13:20
-167,pay_Test_023,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,4999,4999,,2026-08-30 16:13:20
-168,pay_Test_024,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,49900,,2026-08-30 16:13:20
-169,pay_Test_025,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
-170,pay_Test_026,invoice_overdue,escalate_human,Overdue B2B invoice needs human/sales follow-up.,0.8,email,escalated,0,19900,Flagged for human follow-up; no further retries.,2026-08-30 16:13:20
-171,pay_Test_027,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,4999,,2026-08-30 16:13:20
-172,pay_Test_028,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,29900,,2026-08-30 16:13:20
-173,pay_Test_029,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,29900,29900,,2026-08-30 16:13:20
-174,pay_Test_030,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-175,pay_Test_031,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,149900,,2026-08-30 16:13:20
-176,pay_Test_032,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,29900,,2026-08-30 16:13:20
-177,pay_Test_033,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,49900,49900,,2026-08-30 16:13:20
-178,pay_Test_034,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,4999,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-179,pay_Test_035,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,recovered,19900,19900,,2026-08-30 16:13:20
-180,pay_Test_036,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,4999,,2026-08-30 16:13:20
-181,pay_Test_037,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-182,pay_Test_038,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,4999,,2026-08-30 16:13:20
-183,pay_Test_039,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,49900,49900,,2026-08-30 16:13:20
-184,pay_Test_040,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,99900,99900,,2026-08-30 16:13:20
-185,pay_Test_041,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
-186,pay_Test_042,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,max_retries_reached,0,9900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-187,pay_Test_043,permanent_failure,do_nothing,Permanent failure is unrecoverable; do not retry.,0.95,none,unrecoverable,0,9900,Permanent failure — no action taken.,2026-08-30 16:13:20
-188,pay_Test_044,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-189,pay_Test_045,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,99900,,2026-08-30 16:13:20
-190,pay_Test_046,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,99900,,2026-08-30 16:13:20
-191,pay_Test_047,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
-192,pay_Test_048,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,29900,,2026-08-30 16:13:20
-193,pay_Test_049,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,link_sent,0,9900,,2026-08-30 16:13:20
-194,pay_Test_050,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,19900,19900,,2026-08-30 16:13:20
-195,pay_Test_051,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-196,pay_Test_052,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
-197,pay_Test_053,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,recovered,99900,99900,,2026-08-30 16:13:20
-198,pay_Test_054,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,29900,,2026-08-30 16:13:20
-199,pay_Test_055,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,max_retries_reached,0,29900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-200,pay_Test_056,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,99900,99900,,2026-08-30 16:13:20
-201,pay_Test_057,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,19900,19900,,2026-08-30 16:13:20
-202,pay_Test_058,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,49900,,2026-08-30 16:13:20
-203,pay_Test_059,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,149900,,2026-08-30 16:13:20
-204,pay_Test_060,mandate_broken,send_payment_link,Broken mandate needs re-initiation via a new link.,0.5,email,link_sent,0,49900,,2026-08-30 16:13:20
-205,pay_Test_061,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:13:20
-206,pay_Test_062,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,99900,99900,,2026-08-30 16:13:20
-207,pay_Test_063,user_abandoned,send_nudge,Customer dropped off; a contextual nudge can recover it.,0.55,whatsapp,nudge_sent,0,9900,,2026-08-30 16:13:20
-208,pay_Test_064,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,49900,,2026-08-30 16:13:20
-209,pay_Test_065,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,link_sent,0,19900,,2026-08-30 16:13:20
-210,pay_Test_066,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,29900,29900,,2026-08-30 16:13:20
-211,pay_Test_067,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,29900,29900,,2026-08-30 16:13:20
-212,pay_Test_068,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,149900,149900,,2026-08-30 16:13:20
-213,pay_Test_069,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,9900,9900,,2026-08-30 16:13:20
-214,pay_Test_070,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,19900,19900,,2026-08-30 16:13:20
-215,pay_Test_071,network_error,retry_upi,Transient gateway/network error is worth one retry.,0.7,upi,recovered,149900,149900,,2026-08-30 16:13:20
-216,pay_Test_072,insufficient_funds,send_payment_link,Funds may be available on retry via a fresh link.,0.6,upi,recovered,29900,29900,,2026-08-30 16:13:20
+361,pay_Test_001,user_abandoned,send_payment_link,"User cancelled the one‑time payment, so a fresh payment link is the most effective next step",0.6,email,link_sent,0,19900,,2026-08-30 16:32:00
+362,pay_Test_002,user_abandoned,send_payment_link,User cancelled but may still want to purchase; a payment link is the cheapest way to recover a one‑time payment,0.6,email,link_sent,0,49900,,2026-08-30 16:32:01
+363,pay_Test_003,network_error,retry_upi,"Network error is likely transient, so a quick UPI retry can recover the one‑time payment",0.7,upi,link_sent,0,9900,,2026-08-30 16:32:04
+364,pay_Test_004,network_error,retry_upi,"Network error is likely temporary, so a UPI retry should resolve the subscription payment",0.6,upi,link_sent,0,4999,,2026-08-30 16:32:06
+365,pay_Test_005,insufficient_funds,send_nudge,"Insufficient funds are likely temporary, so a friendly WhatsApp nudge can prompt the customer to add money and retry the subscription payment",0.6,whatsapp,recovered,4999,4999,,2026-08-30 16:32:09
+366,pay_Test_006,network_error,retry_upi,Network error is likely transient; a final UPI retry can recover the subscription payment,0.6,upi,max_retries_reached,0,99900,attempts=3 >= 3; escalated.,2026-08-30 16:32:11
+367,pay_Test_007,insufficient_funds,send_payment_link,Insufficient funds is likely temporary; sending a payment link lets the customer retry at their convenience,0.6,email,link_sent,0,99900,,2026-08-30 16:32:14
+368,pay_Test_008,insufficient_funds,send_payment_link,Insufficient funds is likely temporary; sending a payment link lets the customer retry easily,0.65,email,recovered,19900,19900,,2026-08-30 16:32:16
+369,pay_Test_009,user_abandoned,send_payment_link,"User cancelled, so sending a payment link is the cheapest way to let them complete the one‑time purchase",0.6,email,recovered,19900,19900,,2026-08-30 16:32:19
+370,pay_Test_010,insufficient_funds,send_nudge,Insufficient funds on a subscription; a WhatsApp nudge is the cheapest way to prompt the customer to add money before retrying,0.6,whatsapp,escalated_high_value,0,6000000,amount 6000000p over high-value threshold; escalated.,2026-08-30 16:32:21
+371,pay_Test_011,insufficient_funds,send_payment_link,Insufficient funds are often temporary; sending a payment link lets the B2B customer settle promptly via email,0.6,email,link_sent,0,99900,,2026-08-30 16:32:24
+372,pay_Test_012,insufficient_funds,send_payment_link,Insufficient funds are likely temporary; sending a payment link lets the customer settle the one‑time charge easily,0.62,email,recovered,19900,19900,,2026-08-30 16:32:26
+373,pay_Test_013,mandate_broken,send_payment_link,"Mandate was revoked by the customer, so a fresh payment link is needed to collect the one‑time amount",0.72,email,link_sent,0,99900,,2026-08-30 16:32:28
+374,pay_Test_014,insufficient_funds,send_nudge,Insufficient funds on a subscription; nudging the customer to add money is cheapest and likely to resolve,0.6,whatsapp,nudge_sent,0,49900,,2026-08-30 16:32:31
+375,pay_Test_015,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the one‑time payment",0.6,upi,recovered,9900,9900,,2026-08-30 16:32:33
+376,pay_Test_016,insufficient_funds,send_payment_link,Insufficient funds for a one‑time payment; sending a payment link lets the customer retry easily,0.62,email,link_sent,0,99900,,2026-08-30 16:32:35
+377,pay_Test_017,insufficient_funds,send_payment_link,Insufficient funds are often temporary; sending a payment link lets the customer quickly retry the one‑time payment,0.65,email,skipped_dnc,0,49900,Customer on do-not-contact list.,2026-08-30 16:32:38
+378,pay_Test_018,user_abandoned,send_nudge,User cancelled the subscription payment; a gentle WhatsApp reminder can prompt them to complete it,0.6,whatsapp,nudge_sent,0,19900,,2026-08-30 16:32:41
+379,pay_Test_019,mandate_broken,escalate_human,"Mandate revoked by customer; requires manual re‑authorization, especially for B2B high‑value payment",0.65,none,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:32:44
+380,pay_Test_020,insufficient_funds,send_nudge,Insufficient funds is likely temporary; a friendly WhatsApp reminder can prompt the subscriber to add money and retry,0.6,whatsapp,nudge_sent,0,49900,,2026-08-30 16:32:46
+381,pay_Test_021,mandate_broken,send_payment_link,"Mandate was revoked by the customer, so a new payment link is needed to re‑authorize the recurring payment",0.6,whatsapp,recovered,4999,4999,,2026-08-30 16:32:49
+382,pay_Test_022,mandate_broken,send_nudge,"Mandate was revoked, so the customer must re‑authorize the subscription",0.6,whatsapp,nudge_sent,0,19900,,2026-08-30 16:32:51
+383,pay_Test_023,insufficient_funds,send_payment_link,"Insufficient funds are often temporary, so sending a payment link lets the customer quickly retry the one‑time payment.",0.65,email,recovered,4999,4999,,2026-08-30 16:32:54
+384,pay_Test_024,insufficient_funds,send_payment_link,Insufficient funds is likely temporary; sending a payment link lets the customer retry easily,0.7,email,recovered,49900,49900,,2026-08-30 16:33:00
+385,pay_Test_025,insufficient_funds,send_payment_link,Insufficient funds are often temporary; sending a payment link lets the customer retry the one‑time payment easily,0.62,email,link_sent,0,99900,,2026-08-30 16:33:05
+386,pay_Test_026,invoice_overdue,send_payment_link,Invoice overdue; sending a payment link is the most direct way to recover the amount,0.62,email,recovered,19900,19900,,2026-08-30 16:33:09
+387,pay_Test_027,insufficient_funds,send_nudge,Insufficient funds are likely temporary; a WhatsApp nudge prompts the subscriber to add money before retrying,0.6,whatsapp,nudge_sent,0,4999,,2026-08-30 16:33:13
+388,pay_Test_028,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the one‑time payment",0.65,upi,link_sent,0,29900,,2026-08-30 16:33:18
+389,pay_Test_029,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the one‑time payment",0.62,upi,recovered,29900,29900,,2026-08-30 16:33:23
+390,pay_Test_030,network_error,send_payment_link,Network error is likely transient; sending a payment link lets the customer complete the one‑time purchase without extra retries,0.65,email,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:33:29
+391,pay_Test_031,insufficient_funds,send_nudge,Customer has insufficient funds; a gentle WhatsApp reminder to add money and retry is appropriate for a subscription.,0.65,whatsapp,nudge_sent,0,149900,,2026-08-30 16:33:33
+392,pay_Test_032,insufficient_funds,send_payment_link,"Insufficient funds are likely temporary, so sending a payment link lets the customer retry easily",0.65,email,link_sent,0,29900,,2026-08-30 16:33:38
+393,pay_Test_033,insufficient_funds,send_nudge,Insufficient funds on a subscription; a friendly WhatsApp nudge is cheapest way to prompt the customer to add money and retry,0.6,whatsapp,recovered,49900,49900,,2026-08-30 16:33:44
+394,pay_Test_034,network_error,send_payment_link,Network error likely temporary; a fresh payment link lets the B2B customer retry easily,0.6,email,max_retries_reached,0,4999,attempts=3 >= 3; escalated.,2026-08-30 16:33:48
+395,pay_Test_035,mandate_broken,send_nudge,Mandate revoked; need customer to re‑authorize subscription payment,0.6,whatsapp,recovered,19900,19900,,2026-08-30 16:33:51
+396,pay_Test_036,insufficient_funds,send_payment_link,Insufficient funds are often temporary; sending a payment link lets the customer retry easily,0.6,email,link_sent,0,4999,,2026-08-30 16:33:56
+397,pay_Test_037,insufficient_funds,send_nudge,Insufficient funds are likely temporary; a friendly WhatsApp nudge can prompt the customer to add funds and retry the subscription payment,0.6,whatsapp,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:33:59
+398,pay_Test_038,user_abandoned,send_payment_link,User cancelled but may still want to buy; a payment link lets them finish easily,0.65,email,link_sent,0,4999,,2026-08-30 16:34:05
+399,pay_Test_039,insufficient_funds,send_nudge,Insufficient funds are often temporary; a friendly WhatsApp reminder can prompt the customer to add money and retry the subscription payment.,0.6,whatsapp,recovered,49900,49900,,2026-08-30 16:34:08
+400,pay_Test_040,insufficient_funds,send_payment_link,Insufficient funds are likely temporary; a payment link lets the customer retry the one‑time payment easily,0.62,email,recovered,99900,99900,,2026-08-30 16:34:14
+401,pay_Test_041,user_abandoned,send_payment_link,"User cancelled the payment but may still want to complete the purchase, so sending a payment link is the cheapest effective recovery for a one‑time order",0.6,email,link_sent,0,149900,,2026-08-30 16:34:17
+402,pay_Test_042,mandate_broken,send_payment_link,Mandate revoked indicates the saved payment method is no longer valid; sending a fresh payment link lets the customer complete the one‑time purchase.,0.62,email,max_retries_reached,0,9900,attempts=3 >= 3; escalated.,2026-08-30 16:34:21
+403,pay_Test_043,permanent_failure,escalate_human,"Permanent failure indicates the payment cannot be auto‑retried, so a human must intervene",0.3,none,unrecoverable,0,9900,Permanent failure — no action taken.,2026-08-30 16:34:24
+404,pay_Test_044,network_error,retry_upi,Transient network error; a retry is likely to succeed for this subscription,0.6,upi,max_retries_reached,0,49900,attempts=3 >= 3; escalated.,2026-08-30 16:34:28
+405,pay_Test_045,insufficient_funds,send_payment_link,Insufficient funds is likely temporary; sending a payment link lets the customer fund and retry the one‑time B2B payment,0.6,email,link_sent,0,99900,,2026-08-30 16:34:33
+406,pay_Test_046,user_abandoned,send_payment_link,User cancelled the payment; sending a payment link lets them complete the one‑time purchase easily,0.62,email,link_sent,0,99900,,2026-08-30 16:34:37
+407,pay_Test_047,insufficient_funds,send_payment_link,"Insufficient funds is likely temporary, so sending a payment link lets the customer retry easily",0.65,email,recovered,19900,19900,,2026-08-30 16:34:41
+408,pay_Test_048,mandate_broken,send_payment_link,"Mandate revoked, so the original UPI attempt cannot succeed; a fresh payment link is needed for this one‑time payment",0.7,email,recovered,29900,29900,,2026-08-30 16:34:44
+409,pay_Test_049,insufficient_funds,send_payment_link,Insufficient funds; a payment link lets the customer quickly add funds and complete the one‑time B2B payment,0.6,email,link_sent,0,9900,,2026-08-30 16:34:49
+410,pay_Test_050,network_error,send_payment_link,"Network error is likely temporary, sending a fresh payment link lets the customer complete the one‑time purchase",0.7,email,recovered,19900,19900,,2026-08-30 16:34:52
+411,pay_Test_051,insufficient_funds,send_nudge,Insufficient funds on a subscription; a WhatsApp nudge is cheapest way to prompt the customer to add money and retry,0.6,whatsapp,max_retries_reached,0,149900,attempts=3 >= 3; escalated.,2026-08-30 16:34:57
+412,pay_Test_052,user_abandoned,send_payment_link,User cancelled the payment; sending a fresh payment link via email is the cheapest way to recover a one‑time B2B payment,0.6,email,link_sent,0,149900,,2026-08-30 16:35:01
+413,pay_Test_053,user_abandoned,send_payment_link,"User cancelled the one‑time payment, so a fresh payment link is the cheapest way to recover the amount",0.6,email,recovered,99900,99900,,2026-08-30 16:35:05
+414,pay_Test_054,network_error,send_payment_link,Network error is likely temporary; sending a payment link lets the customer retry easily,0.6,email,link_sent,0,29900,,2026-08-30 16:35:07
+415,pay_Test_055,insufficient_funds,send_nudge,Insufficient funds likely temporary; a WhatsApp reminder to add money and retry is cheapest and appropriate for a subscription,0.6,whatsapp,max_retries_reached,0,29900,attempts=3 >= 3; escalated.,2026-08-30 16:35:13
+416,pay_Test_056,network_error,send_payment_link,Network error is likely temporary; sending a fresh payment link gives the customer a simple way to retry the one‑time payment.,0.62,email,recovered,99900,99900,,2026-08-30 16:35:19
+417,pay_Test_057,insufficient_funds,send_payment_link,Insufficient funds is likely temporary; sending a payment link lets the customer retry the one‑time payment easily,0.6,email,recovered,19900,19900,,2026-08-30 16:35:24
+418,pay_Test_058,user_abandoned,send_payment_link,"User cancelled the one‑time payment, so sending a fresh payment link is the cheapest way to recover the amount",0.6,email,link_sent,0,49900,,2026-08-30 16:35:29
+419,pay_Test_059,user_abandoned,send_payment_link,"User cancelled but may still want the product, so sending a payment link can recover the one‑time payment",0.6,email,link_sent,0,149900,,2026-08-30 16:35:33
+420,pay_Test_060,mandate_broken,send_payment_link,"Mandate was revoked, so the customer must re‑authorize payment via a new link",0.6,email,link_sent,0,49900,,2026-08-30 16:35:38
+421,pay_Test_061,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the subscription payment",0.6,upi,max_retries_reached,0,19900,attempts=3 >= 3; escalated.,2026-08-30 16:35:42
+422,pay_Test_062,network_error,retry_upi,"Network error is likely temporary, a quick UPI retry can recover the payment",0.6,upi,recovered,99900,99900,,2026-08-30 16:35:45
+423,pay_Test_063,user_abandoned,send_payment_link,User cancelled the one‑time payment; a payment link lets them complete it easily,0.6,email,link_sent,0,9900,,2026-08-30 16:35:51
+424,pay_Test_064,network_error,retry_upi,Network error likely transient; retry via UPI automatically.,0.65,upi,link_sent,0,49900,,2026-08-30 16:35:55
+425,pay_Test_065,network_error,retry_upi,Transient network error; a quick UPI retry is likely to succeed,0.7,upi,link_sent,0,19900,,2026-08-30 16:35:58
+426,pay_Test_066,insufficient_funds,send_payment_link,Insufficient funds are likely temporary; sending a payment link lets the customer retry the one‑time payment easily,0.6,email,recovered,29900,29900,,2026-08-30 16:36:01
+427,pay_Test_067,network_error,retry_upi,Network error is likely transient; retrying the UPI payment should resolve it for this subscription,0.6,upi,recovered,29900,29900,,2026-08-30 16:36:04
+428,pay_Test_068,insufficient_funds,send_nudge,Insufficient funds are likely temporary; a WhatsApp nudge prompts the subscriber to add money before retrying,0.6,whatsapp,recovered,149900,149900,,2026-08-30 16:36:08
+429,pay_Test_069,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the one‑time payment",0.6,upi,recovered,9900,9900,,2026-08-30 16:36:11
+430,pay_Test_070,network_error,retry_upi,Network error is likely transient; retrying the UPI payment should resolve it for this subscription,0.6,upi,recovered,19900,19900,,2026-08-30 16:36:15
+431,pay_Test_071,network_error,retry_upi,"Network error is likely temporary, so a UPI retry can recover the one‑time payment",0.6,upi,recovered,149900,149900,,2026-08-30 16:36:19
+432,pay_Test_072,insufficient_funds,send_nudge,Insufficient funds on a subscription; nudging the customer to add money is cheapest and likely to resolve,0.6,whatsapp,recovered,29900,29900,,2026-08-30 16:36:22
