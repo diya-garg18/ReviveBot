@@ -72,6 +72,20 @@ def generate_report(
     }
     graceful = [r for r in rows if r["outcome"] in graceful_outcomes]
 
+    # Draw the summary chart next to the report. Optional: if matplotlib isn't
+    # installed the report is still produced, just without the image.
+    chart_name = None
+    if rows:
+        chart_stats = {"recovered": recovered, "unrecovered": unrecovered,
+                       "recovery_rate": rate}
+        try:
+            from revivebot.chart import render_chart
+            out_png = out_md.with_name("recovery_chart.png")
+            render_chart(rows, chart_stats, out_png)
+            chart_name = out_png.name
+        except Exception:
+            chart_name = None
+
     lines: list[str] = []
     lines.append("# ReviveBot Recovery Report")
     lines.append("")
@@ -79,6 +93,9 @@ def generate_report(
     lines.append(f"- **Batch size:** {total} failed payments")
     lines.append(f"- **Total at risk:** {_rupees(at_risk)}")
     lines.append("")
+    if chart_name:
+        lines.append(f"![Recovery summary]({chart_name})")
+        lines.append("")
     lines.append("## Actions taken")
     lines.append("")
     lines.append("| Action | Count | At-risk value |")

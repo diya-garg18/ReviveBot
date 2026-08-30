@@ -38,11 +38,15 @@ python scripts/generate_data.py     # writes data/synthetic_payments.csv (72 row
 python main.py                      # runs the batch, writes report + audit.db
 ```
 
-Sample run headline (offline mode, seeded):
+Sample run headline:
 
 ```
-Batch: 72 | At risk: ₹96,736.92 | Recovered: ₹10,978.96 (11.3%)
+Batch: 72 | At risk: ₹96,736.92 | Recovered: ₹12,124.97 (12.5%)
 ```
+
+Every run also writes a summary chart (`recovery_chart.png`) next to the report:
+
+![Recovery summary](sample_output/recovery_chart.png)
 
 To use the **real** Groq diagnosis and Razorpay test-mode payment links, copy
 `.env.example` to `.env` and fill in your keys:

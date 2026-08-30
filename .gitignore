@@ -8,4 +8,5 @@ venv/
 /audit.db
 /results.csv
 /recovery_report.md
+/recovery_chart.png
 *.db-journal

@@ -1,8 +1,10 @@
 # ReviveBot Recovery Report
 
-- **Run date:** 2026-08-30 22:06:22
+- **Run date:** 2026-08-30 22:41:17
 - **Batch size:** 72 failed payments
 - **Total at risk:** ₹96,736.92
+
+![Recovery summary](recovery_chart.png)
 
 ## Actions taken
 
