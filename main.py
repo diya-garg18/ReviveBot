@@ -78,9 +78,15 @@ def _parse_args():
         "--limit", type=int, default=None, metavar="N",
         help="only process the first N payments (useful for a quick demo)",
     )
+    parser.add_argument(
+        "--offline", action="store_true",
+        help="ignore all API keys and run on rules + mock comms only",
+    )
     return parser.parse_args()
 
 
 if __name__ == "__main__":
     args = _parse_args()
+    if args.offline:
+        config.FORCE_OFFLINE = True
     run(limit=args.limit)

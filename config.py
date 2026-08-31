@@ -67,10 +67,14 @@ DO_NOT_CONTACT: set[str] = load_dnc()
 # whole batch run end-to-end for a demo without any credentials.
 OFFLINE_OK = os.getenv("REVIVEBOT_OFFLINE_OK", "1") == "1"
 
+# Set True at runtime (e.g. `main.py --offline`) to ignore all credentials and
+# run purely on rules + mock comms, even when keys are present.
+FORCE_OFFLINE = False
+
 
 def has_groq() -> bool:
-    return bool(GROQ_API_KEY)
+    return bool(GROQ_API_KEY) and not FORCE_OFFLINE
 
 
 def has_razorpay() -> bool:
-    return bool(RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET)
+    return bool(RAZORPAY_KEY_ID and RAZORPAY_KEY_SECRET) and not FORCE_OFFLINE

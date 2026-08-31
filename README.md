@@ -37,6 +37,7 @@ pip install -r requirements.txt
 python scripts/generate_data.py     # writes data/synthetic_payments.csv (80 rows)
 python main.py                      # runs the batch, writes report + audit.db
 python main.py --limit 5            # process only the first 5 (quick demo)
+python main.py --offline            # ignore keys; run on rules + mock comms
 ```
 
 Sample run headline:

@@ -20,3 +20,13 @@ def test_load_dnc_falls_back_when_file_missing(tmp_path):
 def test_project_dnc_file_is_loaded():
     # The shipped list should contain at least the known opt-out address.
     assert "dnc_customer@example.com" in config.DO_NOT_CONTACT
+
+
+def test_force_offline_disables_providers(monkeypatch):
+    # Even with keys set, FORCE_OFFLINE makes the providers report unavailable.
+    monkeypatch.setattr(config, "GROQ_API_KEY", "test-key")
+    monkeypatch.setattr(config, "RAZORPAY_KEY_ID", "id")
+    monkeypatch.setattr(config, "RAZORPAY_KEY_SECRET", "secret")
+    monkeypatch.setattr(config, "FORCE_OFFLINE", True)
+    assert config.has_groq() is False
+    assert config.has_razorpay() is False
