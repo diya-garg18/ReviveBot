@@ -36,6 +36,7 @@ rules and comms are mocked, so you can see the full pipeline immediately.
 pip install -r requirements.txt
 python scripts/generate_data.py     # writes data/synthetic_payments.csv (80 rows)
 python main.py                      # runs the batch, writes report + audit.db
+python main.py --limit 5            # process only the first 5 (quick demo)
 ```
 
 Sample run headline:

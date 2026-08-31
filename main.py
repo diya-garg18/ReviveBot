@@ -35,13 +35,15 @@ def load_records(csv_path=None) -> list[dict]:
         return list(csv.DictReader(f))
 
 
-def run() -> dict:
+def run(limit: int | None = None) -> dict:
     mode = "Groq" if config.has_groq() else "rule-based (offline)"
     comms = "Razorpay test" if config.has_razorpay() else "mock comms (offline)"
     print(f"ReviveBot — diagnosis: {mode} | execution: {comms}")
     print("-" * 60)
 
     records = load_records()
+    if limit is not None:
+        records = records[:limit]  # process only the first N (handy for demos)
     init_db()
 
     for record in records:
@@ -68,5 +70,17 @@ def run() -> dict:
     return stats
 
 
+def _parse_args():
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Run the ReviveBot recovery agent.")
+    parser.add_argument(
+        "--limit", type=int, default=None, metavar="N",
+        help="only process the first N payments (useful for a quick demo)",
+    )
+    return parser.parse_args()
+
+
 if __name__ == "__main__":
-    run()
+    args = _parse_args()
+    run(limit=args.limit)
