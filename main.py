@@ -7,8 +7,8 @@ Reads data/synthetic_payments.csv, and for each failed payment:
   -> log to audit.db. Finally, generate recovery_report.md + results.csv.
 
 Runs with no credentials at all: diagnosis falls back to rules and comms are
-mocked (see config.OFFLINE_OK). Set ANTHROPIC_API_KEY / RAZORPAY_* to use the
-real Claude diagnosis and Razorpay test-mode links.
+mocked (see config.OFFLINE_OK). Set GROQ_API_KEY / RAZORPAY_* to use the real
+Groq diagnosis and Razorpay test-mode links.
 """
 from __future__ import annotations
 
