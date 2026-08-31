@@ -1,6 +1,6 @@
 # ReviveBot Recovery Report
 
-- **Run date:** 2026-08-30 23:04:39
+- **Run date:** 2026-08-31 09:52:05
 - **Batch size:** 80 failed payments
 - **Total at risk:** ₹130,924.96
 
@@ -19,6 +19,17 @@
 
 - **Recovered:** ₹28,519.99  (21.8% of at-risk)
 - **Unrecovered:** ₹102,404.97
+
+## Recovery by failure type
+
+| Failure type | Count | At risk | Recovered | Rate |
+| --- | ---: | ---: | ---: | ---: |
+| insufficient_funds | 24 | ₹78,477.00 | ₹4,992.00 | 6.4% |
+| mandate_broken | 26 | ₹23,626.97 | ₹13,837.99 | 58.6% |
+| user_abandoned | 17 | ₹18,583.00 | ₹9,191.00 | 49.5% |
+| network_error | 11 | ₹9,689.00 | ₹0.00 | 0.0% |
+| invoice_overdue | 1 | ₹499.00 | ₹499.00 | 100.0% |
+| permanent_failure | 1 | ₹49.99 | ₹0.00 | 0.0% |
 
 ## Graceful failures (agent knew when to stop)
 

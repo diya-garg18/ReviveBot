@@ -65,6 +65,15 @@ def generate_report(
         a["count"] += 1
         a["at_risk"] += r["amount"]
 
+    # Recovery by failure type: count, at-risk, recovered, and rate per bucket.
+    by_failure: dict[str, dict[str, int]] = {}
+    for r in rows:
+        f = by_failure.setdefault(r["failure_type"] or "unknown",
+                                  {"count": 0, "at_risk": 0, "recovered": 0})
+        f["count"] += 1
+        f["at_risk"] += r["amount"]
+        f["recovered"] += r["recovered"]
+
     # Graceful failures — the cases where the agent correctly stopped.
     graceful_outcomes = {
         "escalated", "escalated_high_value", "escalated_low_confidence",
@@ -107,6 +116,17 @@ def generate_report(
     lines.append("")
     lines.append(f"- **Recovered:** {_rupees(recovered)}  ({rate:.1f}% of at-risk)")
     lines.append(f"- **Unrecovered:** {_rupees(unrecovered)}")
+    lines.append("")
+    lines.append("## Recovery by failure type")
+    lines.append("")
+    lines.append("| Failure type | Count | At risk | Recovered | Rate |")
+    lines.append("| --- | ---: | ---: | ---: | ---: |")
+    for ftype, s in sorted(by_failure.items(), key=lambda kv: -kv[1]["at_risk"]):
+        ftype_rate = (s["recovered"] / s["at_risk"] * 100) if s["at_risk"] else 0.0
+        lines.append(
+            f"| {ftype} | {s['count']} | {_rupees(s['at_risk'])} | "
+            f"{_rupees(s['recovered'])} | {ftype_rate:.1f}% |"
+        )
     lines.append("")
     lines.append("## Graceful failures (agent knew when to stop)")
     lines.append("")
