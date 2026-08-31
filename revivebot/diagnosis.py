@@ -68,7 +68,8 @@ def _diagnose_groq(record: dict, failure_type: str) -> ActionPlan:
 
     from groq import Groq  # imported lazily so offline runs need no SDK
 
-    client = Groq(api_key=config.GROQ_API_KEY)
+    # Retry a few times so a transient network blip doesn't force a fallback.
+    client = Groq(api_key=config.GROQ_API_KEY, max_retries=4)
     user_payload = {
         "failure_type": failure_type,
         "payment": {

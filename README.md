@@ -43,7 +43,7 @@ python main.py --offline            # ignore keys; run on rules + mock comms
 Sample run headline:
 
 ```
-Batch: 80 | At risk: ₹130,924.96 | Recovered: ₹28,519.99 (21.8%)
+Batch: 80 | At risk: ₹130,924.96 | Recovered: ₹24,722.99 (18.9%)
 ```
 
 Every run also writes a summary chart (`recovery_chart.png`) next to the report:
